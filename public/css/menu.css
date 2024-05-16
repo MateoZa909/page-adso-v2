@@ -1,0 +1,191 @@
+/* ******************************** */
+/* MENU */
+.menu {
+    position: relative;
+}
+
+.back-sidebar {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: #D9D9D9;
+    width: 254px;
+    height: 213px;
+    top: 0px;
+    left: 0;
+    padding: 5px 8px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 5px 10px 15px 2px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.back-sidebar.open {
+    opacity: 1; /* Este es el estado final del modal cuando está abierto. */
+}
+
+.back-sidebar .close-sidebar {
+    /* background-color: lightblue; */
+    border-bottom: 1px solid #B0B0B0;
+    width: 230px;
+    padding: 8px 0;
+    margin-bottom: 10px;
+}
+
+.back-sidebar .back-item-sidebar {
+    /* background-color: lightgoldenrodyellow; */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.back-sidebar .item-sidebar {
+    border-radius: 8px;
+    padding: 0 8px;
+}
+
+.back-sidebar .item-sidebar:hover {
+    background-color: rgb(183, 183, 183);
+}
+
+.back-sidebar .close-sidebar img {
+    width: 38px;
+}
+
+.back-sidebar .item-sidebar img {
+    width: 24px;
+}
+
+.back-sidebar .item-sidebar span {
+    font-family: var(--font-inter);
+}
+/* MENU */
+/* ******************************** */
+
+/* ******************************** */
+/* MENU USER */
+.user {
+    position: relative;
+}
+
+.back-user {
+    position: absolute;
+    background-color: #D9D9D9;
+    width: 330px;
+    height: 160px;
+    top: 0;
+    right: 0;
+    box-shadow: -5px 10px 15px 2px rgba(0, 0, 0, 0.2);
+    border-bottom-left-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.back-user.opened {
+    display: flex;
+    opacity: 1;
+}
+
+.back-user .top-content {
+    /* background-color: lightblue; */
+    height: 40%;
+    width: 100%;
+    padding: 10px 10px;
+    display: flex;
+    justify-content: end;
+    gap: 8px;
+}
+
+.back-user .top-content button {
+    border: none;
+    background-color: #C7C7C7;
+    width: 110px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.back-user .top-content button img {
+    width: 30px;
+}
+
+.back-user .top-content .close-user img {
+    width: 38px;
+}
+
+.back-info-user {
+    background-color: #C5C5C5;
+    height: 50%;
+    display: flex;
+    padding: 5px 8px;
+    align-items: center;
+    gap: 12px;
+}
+
+.back-info-user .back-img {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 56px;
+    height: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-info-user .back-img img {
+    max-width: 100%;
+    max-height: 100%; 
+    object-fit: contain; 
+}
+
+.back-info-user .back-text {
+    /* background-color: lightgoldenrodyellow; */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+}
+
+.back-info-user .back-text span:nth-child(1) {
+    font-weight: bold;
+}
+
+.back-info-user .back-edit {
+    position: relative;
+    display: flex;
+    align-items: start;
+    justify-content: end;
+    width: 50px;
+    /* background-color: lightcyan; */
+    height: 100%;
+}
+
+.edit-user {
+    position: absolute;
+    top: 11%;
+    width: 60px;
+    height: 25px;
+    right: 6%;
+    background-color: #313131;
+    border-top-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    display: flex;
+    padding-top: 14px;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-user p {
+    font-size: 13px;
+    color: #fff;
+    font-family: var(--font-inter);
+}
+/* MENU USER */
+/* ******************************** */
