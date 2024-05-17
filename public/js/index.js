@@ -77,13 +77,13 @@ function displayShowcaseNews(article) {
     const showcase = document.querySelector('.showcase');
     showcase.style.backgroundImage = `url('${article.urlToImage || '/images/not-available.png'}')`; // Usar imagen de la noticia o una imagen por defecto
     showcase.innerHTML = `
-      <h2>${article.title}</h2>
-      <p>${article.description || 'Descripción no disponible'}</p>
-      <a href="${article.url}" class="btn" target="_blank">Leer más <i class="fas fa-chevron-right"></i></a>
+        <h2>${article.title}</h2>
+        <p>${article.description || 'Descripción no disponible'}</p>
+        <a href="${article.url}" class="btn" target="_blank">Leer más <i class="fas         fa-chevron-right"></i></a>
     `;
-  }
+}
 
-  function displayNewsCards(articles) {
+function displayNewsCards(articles) {
     const newsCards = document.querySelector('.news-cards');
     newsCards.classList.remove('visible'); // Ocultar inicialmente
 
@@ -119,9 +119,9 @@ function displayShowcaseNews(article) {
 
       newsCards.classList.add('visible'); // Mostrar con retraso
     }, 500); // Retraso de 500 ms (ajusta según tus necesidades)
-  }
+}
 
-  function displayPagination(category = '') {
+function displayPagination(category = '') {
     const pagination = document.getElementById('pagination');
     pagination.innerHTML = '';
     const totalPages = Math.ceil(totalResults / pageSize);
@@ -150,48 +150,96 @@ function displayShowcaseNews(article) {
 
     pagination.appendChild(prevButton);
     pagination.appendChild(nextButton);
-  }
+}
 
-  document.getElementById('general').addEventListener('click', (e) => {
+document.getElementById('general').addEventListener('click', (e) => {
     e.preventDefault();
     currentCategory = ''; // Establecer categoría a general
     currentPage = 1;
     fetchNews(currentPage, currentCategory);
     document.getElementById('news-cards').scrollIntoView({ behavior: 'smooth' });
-  });
+});
 
-  document.getElementById('negocios').addEventListener('click', (e) => {
+document.getElementById('negocios').addEventListener('click', (e) => {
     e.preventDefault();
     currentCategory = 'business'; // Establecer categoría a negocios
     currentPage = 1;
     fetchNews(currentPage, currentCategory);
     document.getElementById('news-cards').scrollIntoView({ behavior: 'smooth' });
-  });
+});
 
-  document.getElementById('deportes').addEventListener('click', (e) => {
+document.getElementById('deportes').addEventListener('click', (e) => {
     e.preventDefault();
     currentCategory = 'sports'; // Establecer categoría a deportes
     currentPage = 1;
     fetchNews(currentPage, currentCategory);
     document.getElementById('news-cards').scrollIntoView({ behavior: 'smooth' });
-  });
+});
 
-  document.getElementById('tecnologia').addEventListener('click', (e) => {
+document.getElementById('tecnologia').addEventListener('click', (e) => {
     e.preventDefault();
     currentCategory = 'technology'; // Establecer categoría a tecnología
     currentPage = 1;
     fetchNews(currentPage, currentCategory);
     document.getElementById('news-cards').scrollIntoView({ behavior: 'smooth' });
-  });
+});
 
-  document.getElementById('entretenimiento').addEventListener('click', (e) => {
+document.getElementById('entretenimiento').addEventListener('click', (e) => {
     e.preventDefault();
     currentCategory = 'entertainment'; // Establecer categoría a entretenimiento
     currentPage = 1;
     fetchNews(currentPage, currentCategory);
     document.getElementById('news-cards').scrollIntoView({ behavior: 'smooth' });
-  });
+});
 
-  fetchNews(currentPage, currentCategory);
+fetchNews(currentPage, currentCategory);
+
+
+// PETICIONES A LOS ENDPOINTS
+document.getElementById('loginForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+
+    const response = await fetch('/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
+    });
+
+    const data = await response.json();
+    if (response.ok) {
+        alert('Login exitoso');
+        console.log('Token:', data.token);
+    } else {
+        alert(data.message);
+    }
+});
+
+document.getElementById('registerForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const nombre = document.getElementById('registerNombre').value;
+    const apellido = document.getElementById('registerApellido').value;
+    const email = document.getElementById('registerEmail').value;
+    const password = document.getElementById('registerPassword').value;
+
+    const response = await fetch('/register', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ nombre, apellido, email, password })
+    });
+
+    const data = await response.json();
+    if (response.ok) {
+        alert('Usuario registrado exitosamente');
+        toggleForms();
+    } else {
+        alert(data.message);
+    }
+});
 
 
