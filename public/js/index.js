@@ -1,7 +1,3 @@
-document.querySelector('.menu-btn').addEventListener('click', () => {
-    document.querySelector('nav-menu').classList.toggle('show');
-});
-
 document.querySelector(".menu-btn").addEventListener("click", () => {
     document.querySelector(".nav-menu").classList.toggle("show");
 });
@@ -50,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-const apiKey = '8fc6900bb6bd4b6197f389a0e186b130'; // Reemplaza 'TU_CLAVE_API' con tu clave API de NewsAPI
+const apiKey = '8fc6900bb6bd4b6197f389a0e186b130'; // 
 const apiUrl = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`;
 const pageSize = 5; // Número de noticias por página
 let currentPage = 1;
@@ -195,51 +191,15 @@ document.getElementById('entretenimiento').addEventListener('click', (e) => {
 fetchNews(currentPage, currentCategory);
 
 
-// PETICIONES A LOS ENDPOINTS
-document.getElementById('loginForm').addEventListener('submit', async function (e) {
-    e.preventDefault();
-    const email = document.getElementById('loginEmail').value;
-    const password = document.getElementById('loginPassword').value;
 
-    const response = await fetch('/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email, password })
-    });
 
-    const data = await response.json();
-    if (response.ok) {
-        alert('Login exitoso');
-        console.log('Token:', data.token);
-    } else {
-        alert(data.message);
-    }
-});
 
-document.getElementById('registerForm').addEventListener('submit', async function (e) {
-    e.preventDefault();
-    const nombre = document.getElementById('registerNombre').value;
-    const apellido = document.getElementById('registerApellido').value;
-    const email = document.getElementById('registerEmail').value;
-    const password = document.getElementById('registerPassword').value;
 
-    const response = await fetch('/register', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ nombre, apellido, email, password })
-    });
 
-    const data = await response.json();
-    if (response.ok) {
-        alert('Usuario registrado exitosamente');
-        toggleForms();
-    } else {
-        alert(data.message);
-    }
-});
+
+
+
+
+
 
 

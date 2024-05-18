@@ -92,7 +92,7 @@ background: linear-gradient(90deg, rgba(16,130,233,1) 11%, rgba(0,80,152,1) 87%)
 .menu-btn {
     position: absolute;
     cursor: pointer;
-    top: 15px;
+    top: 17px;
     right: 30px;
     /* display: none; */
     z-index: 2;
